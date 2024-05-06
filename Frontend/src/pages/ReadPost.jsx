@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import ReactMarkDown from "../components/ReactMarkDown";
 import { Cfetch } from "../utils/apiFetch";
 import Back from "../components/back";
@@ -22,14 +22,21 @@ function ReadPost() {
   }, []);
 
   useEffect(() => {
-    if (post && post.likes.includes(user.user.id)) {
+    if (user.user!==null && post && post.likes.includes(user.user.id)) {
       console.log("sdf");
       setLiked(true);
+      
+    }
+    if(post){
       setCount(post.likes.length);
     }
   }, [post]);
 
   const handleLike = async () => {
+    if(user.user===null){
+      return 
+    }else{
+    console.log("vxdfv");
     setCount(liked ? count - 1 : count + 1);
     setLiked(!liked);
     await fetch(`/api/post/${id}`, {
@@ -40,7 +47,7 @@ function ReadPost() {
       },
       body: JSON.stringify({ unLike: liked }),
     });
-  };
+  }};
 
   return (
     <div className="md:px-10 px-2 py-5">
@@ -63,9 +70,9 @@ function ReadPost() {
           <br />
           <ul className="flex flex-wrap gap-2 mt-1">
             {post.label.map((l, i) => (
-              <span className="bg-slate-100 px-1 rounded-md" key={i}>
+              <Link className=" px-1 rounded-md bg-slate-200 text-blue-600"   key={i} to={`/?label=${l}`}>
                 #{l}
-              </span>
+              </Link>
             ))}
           </ul>
 

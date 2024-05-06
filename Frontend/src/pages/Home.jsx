@@ -21,7 +21,9 @@ function Home() {
           const data = json.filter((item) => item.label.includes(query));
           setPosts(data);
         } else {
-          setPosts(json);
+          const data = json.reverse()
+
+          setPosts(data);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -33,7 +35,7 @@ function Home() {
 
   return (
     <main className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl font-bold text-center my-8">Posts</h2>
+      <h2 className="text-3xl font-bold text-center my-8 select-none">Posts</h2>
 
       <ul className="grid grid-cols-1  border rounded-md border-b-0 ">
         {posts && posts.map((post, i) => <PostCard post={post} key={i} />)}

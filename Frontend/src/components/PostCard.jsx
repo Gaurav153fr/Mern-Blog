@@ -47,7 +47,7 @@ function PostCard({ post }) {
             </p>
           </div>
         </div>
-        <ul className="flex overflow-hidden gap-2 mt-1">
+        <ul className="flex overflow-x-hidden gap-2 mt-1">
             {post.label.map((l, i) => (
               <Link className=" px-1 rounded-md bg-slate-200 text-blue-600"   key={i} to={`?label=${l}`}>
                 #{l}
