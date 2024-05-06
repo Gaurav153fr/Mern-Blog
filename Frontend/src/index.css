@@ -1,0 +1,73 @@
+/* src/styles.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  font-family: monospace, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom styling for links */
+
+
+/* Styling for signup form */
+.signup-form {
+  @apply bg-white shadow-xl h-fit;
+}
+
+/* Styling for form groups */
+.form-group {
+  @apply p-5 bg-white;
+}
+
+/* Styling for table */
+table {
+  @apply border-2 border-gray-200 divide-y divide-gray-400;
+}
+
+/* Styling for table cells */
+td {
+  @apply px-4 py-2 whitespace-nowrap text-sm text-gray-700 border-2 border-gray-200;
+}
+
+th {
+  @apply bg-slate-200 border-2 border-gray-300 px-4; 
+}
+
+/* Styling for code */
+code {
+  @apply bg-gray-800 px-2 py-1 rounded-md font-mono text-sm text-gray-800 text-white rounded-lg;
+}
+
+/* Styling for blockquote */
+blockquote {
+  @apply border-l-4 border-black bg-gray-200 py-2 my-5 pl-4;
+}
+
+/* Additional heading styles */
+h3 {
+  @apply my-5 text-xl font-semibold;
+}
+
+h2 {
+  @apply text-3xl font-bold my-5;
+}
+
+h1 {
+  @apply text-4xl font-extrabold my-5;
+}
+
+a {
+  @apply hover:underline text-amber-600;
+}
+li{
+  @apply list-disc pl-2
+}
